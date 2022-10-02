@@ -1,9 +1,57 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Template</title>
-</head>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/game.js"></script> 
+    <title>rpg</title>
+  </head>
 <body>
-  <img src="assets/images/scientist.gif">
+  <div class="main">
+    <div class="intro">
+      <!-- <img src="/src/assets/images/puppy-photo.jpg"> -->
+      <h3>Welcome to --Bros Before Knows--</h3>
+      <h6>create a player and venture forth to putz around battling monsters and falling until you level up a few times..</h6>
+      <form id="createPlayer">
+        <label for="playerName">Create a player name:</label>
+        <input id="playerName" type="text">
+        <label for="playerType">Choose a player type:</label>
+        <select name="playerTypeSelect" id="playerType">
+          <option value="1">Scientist</option>
+          <option value="2">Gym Bro</option>
+        </select>
+        <button type="submit" class="btn btn-primary" id="startGame">Start the game!</button>
+      </form>
+    </div>
+    <div class="play">
+      <button type="button" class="btn btn-primary" id="diceRoll">Roll the dice and learn your fate!</button>
+    </div>
+    <div class="playerStatus">
+      <a class="status">Player Name:<span id="playerNameDisplay"></span></a>
+      <a class="status">Player type:<span id="playerTypeDisplay"></span></a>
+      <a class="status">Player's Roll:<span id="diceRoll"></span></a>
+      <a class="status">Player Health:<span id="playerHealth"></span></a>
+      <a class="status">Player XP:<span id="playerXp"></span></a>
+      <a class="status">Player Level:<span id="playerLevel"></span></a>
+    </div>
+
+    <div class="gameActivity" id="battleAMonster">
+      <h3>Now you get to FIGHT A MONSTER!!</h3>
+        <p>You hear a branch crack behind you, as you turn around you are startled byt the monster ready to pounce</p>
+        <p>The Monster's health is at:<span id="monsterHealth"></span></p>
+        <br>
+        <button type="button" class="btn btn-primary" id="diceRoll">Roll the dice to see what happens to you next!</button>
+    </div>
+    <div class="gameActivity" id="tripAndFall">
+      <h3>You tripped and fell</h3>
+        <p>During the last fall, your trip cost you 5hp. You must have been falling with experience, because you also gained 5xp!</p>
+        <button type="button" class="btn btn-primary" id="diceRoll">Roll the dice to see what happens to you next!</button>
+    </div>
+    <div class="gameActivity" id="findFood">
+      <h3>You found food!</h3>
+        <p>While picking up your die, you see seomthing out of the corner of your eye. You find GENERIC FOOD, giving you 5hp and 10xp!</p>
+        <button type="button" class="btn btn-primary" id="diceRoll">Roll the dice to see what happens to you next!</button>
+    </div>
 </body>
 </html>

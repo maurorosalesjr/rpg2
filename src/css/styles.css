@@ -1,3 +1,28 @@
 body {
-  background-color: burlywood;
+  background-color: aqua;
+  margin: 50px;
+}
+
+.play{
+  display: none;
+}
+
+.playerStatus{
+  display: none;
+}
+
+.status{
+  margin: 15px;
+}
+
+#battleAMonster{
+  display:none;
+}
+
+#tripAndFall{
+  display: none;
+}
+
+#findFood{
+  display:none;
 }
