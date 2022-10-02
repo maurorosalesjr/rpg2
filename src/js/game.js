@@ -1,24 +1,32 @@
-function turnActivity(diceRollNumber) {
-  let rollActivity;
-  const diceRollActivityMap = {
-    1 : "battleMonster",
-    2 : "tripAndFall",
-    3 : "findFood",
-    4 : "findFood",
-    5 : "tripAndFall",
-    6 : "battleMonster",
-  };
-  rollActivity = diceRollActivityMap[diceRollNumber];
-  return rollActivity;
-}
+// function turnActivity(diceRollNumber) {
+//   let rollActivity;
+//   const diceRollActivityMap = {
+//     1 : "battleMonster",
+//     2 : "tripAndFall",
+//     3 : "findFood",
+//     4 : "findFood",
+//     5 : "tripAndFall",
+//     6 : "battleMonster",
+//   };
+//   rollActivity = diceRollActivityMap[diceRollNumber];
+//   return rollActivity;
+// }
+export { rollDice };
 
 function rollDice() {
   let diceRoll = Math.floor((Math.random()*6) + 1);
-  return diceRoll;
+  console.log(diceRoll);
+  if(diceRoll === 1 || diceRoll === 2){
+    return "tripAndFall";
+  } else if (diceRoll === 3 || diceRoll === 4 || diceRoll === 5){
+    return "battleMonster";
+  } else {
+    return "findFood";
+  }
 }
 //^^^^^^^^ above can be smashed together
 
-export class Game {
+export class Game { // first class citizen
   constructor(player) {
     this.player = player;
     this.monsterHealth = 0;
@@ -27,8 +35,7 @@ export class Game {
 
   takeTurn() {
     this.diceRollNumber = rollDice();
-    console.log(turnActivity(this.diceRollNumber));
-    return turnActivity(this.diceRollNumber);
+    return this.diceRollNumber;
   }
 
   battleAttack() {
@@ -53,7 +60,7 @@ export class Game {
 }
 // ^^^^^^^^^^^^^^^^^^^ above can be made into a more functional function
 
-export class Player{
+export class Player{// first class citizen
   constructor(playerType) {
     this.playerType = playerType;
     this.hp = 100;
@@ -63,10 +70,10 @@ export class Player{
     this.level = 1;
   }
 
-  equip() {
-    this.weaponDamage = 0;
-    this.weapon = equippedWeapon(this.playerType)[0];
-    this.weaponDamage = equippedWeapon(this.playerType)[1];
-  }
+  // equip() {
+  //   this.weaponDamage = 0;
+  //   this.weapon = equippedWeapon(this.playerType)[0];
+  //   this.weaponDamage = equippedWeapon(this.playerType)[1];
+  // }
 }
 // ^^^^^^^^^^^^^^^^^^^ above can be made into a more functional function

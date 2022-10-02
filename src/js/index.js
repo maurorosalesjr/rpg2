@@ -1,13 +1,13 @@
+import { Game, Player, rollDice } from './game.js';
 import $ from 'jquery';
 import'bootstrap';
 import'bootstrap/dist/css/bootstrap.min.css';
-import '../css/styles.css';
-import {Game, Player, turnActivity, rollDice} from './game.js';
+import './../css/styles.css';
 
-const activity = turnActivity(diceRollNumber);
+const game = Game;
+const activity = rollDice();
 
-
-function diceRollToPlay(game, activity) {
+function diceRollToPlay() {
   if (activity === "battleMonster") {
     game.monsterHealth = 20;
     $("#battleAMonster").show();
@@ -45,4 +45,4 @@ $(document).ready(function() {
     diceRollToPlay(currentGame, (currentGame.takeTurn()));
   });
 
-})
+});
