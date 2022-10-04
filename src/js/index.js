@@ -1,4 +1,5 @@
-import { Game, Player, rollDice } from './game.js';
+import { Game, rollDice } from './game.js';
+import { Player } from './game.js';
 import $ from 'jquery';
 import'bootstrap';
 import'bootstrap/dist/css/bootstrap.min.css';
@@ -20,24 +21,26 @@ function diceRollToPlay() {
 
 $(document).ready(function() {
 
-  const playerName = $('#playerName').val();
-  const playerType = $('#playerType').val();
-  let player1 = new Player(playerType);
-  let currentGame = new Game(player1);
-  $("#monsterHealth").text(currentGame.monsterHealth);
-  $("#playerHealth").text(currentGame.player.hp);
-  $("#playerXp").text(currentGame.player.xp);
-  $("#playerLevel").text(currentGame.player.level);
-  $("#diceNumber").text(currentGame.diceRollNumber);
-  $("#playerTypeDisplay").text(playerType);
-  $("playerNameDisplay").text(playerName);
-
   $('form#createPlayer').submit(function(event) {
     event.preventDefault();
     $(".intro").hide();
     $(".play").show();
     $(".playerStatus").show();
   });
+
+  const playerName = $('#playerName').val();
+  const playerType = $('#playerType').val();
+  let player1 = new Player(playerType);
+  let currentGame = new Game(player1);
+  //$("#monsterHealth").text(currentGame.monsterHealth);
+  $("#playerHealth").text(currentGame.player.hp);
+  $("#playerXp").text(currentGame.player.xp);
+  $("#playerLevel").text(currentGame.player.level);
+  //$("#diceNumber").text(currentGame.diceRollNumber);
+  // $("#playerTypeDisplay").text(playerType);
+  $("playerNameDisplay").text(playerName);
+
+  
 
   $('button#diceRoll').click(function(){
     $(".play").hide();

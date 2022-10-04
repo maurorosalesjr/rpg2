@@ -13,17 +13,16 @@
       <!-- <img src="/src/assets/images/puppy-photo.jpg"> -->
       <h3>Welcome to --Bros Before Knows--</h3>
       <h6>create a player and venture forth to putz around battling monsters and falling until you level up a few times..</h6>
+      
       <form id="createPlayer">
+        <h6>Let's Roll Your Player!</h6>
         <label for="playerName">Create a player name:</label>
         <input id="playerName" type="text">
-        <label for="playerType">Choose a player type:</label>
-        <select name="playerTypeSelect" id="playerType">
-          <option value="1">Scientist</option>
-          <option value="2">Gym Bro</option>
-        </select>
         <button type="submit" class="btn btn-primary" id="startGame">Start the game!</button>
       </form>
     </div>
+
+
     <div class="play">
       <button type="button" class="btn btn-primary" id="diceRoll">Roll the dice and learn your fate!</button>
     </div>
@@ -43,11 +42,13 @@
         <br>
         <button type="button" class="btn btn-primary" id="diceRoll">Roll the dice to see what happens to you next!</button>
     </div>
+
     <div class="gameActivity" id="tripAndFall">
       <h3>You tripped and fell</h3>
         <p>During the last fall, your trip cost you 5hp. You must have been falling with experience, because you also gained 5xp!</p>
         <button type="button" class="btn btn-primary" id="diceRoll">Roll the dice to see what happens to you next!</button>
     </div>
+    
     <div class="gameActivity" id="findFood">
       <h3>You found food!</h3>
         <p>While picking up your die, you see seomthing out of the corner of your eye. You find GENERIC FOOD, giving you 5hp and 10xp!</p>

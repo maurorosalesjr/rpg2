@@ -60,20 +60,6 @@ export class Game { // first class citizen
 }
 // ^^^^^^^^^^^^^^^^^^^ above can be made into a more functional function
 
-export class Player{// first class citizen
-  constructor(playerType) {
-    this.playerType = playerType;
-    this.hp = 100;
-    this.xp = 0;
-    this.weapon;
-    this.weaponDamage = 0;
-    this.level = 1;
-  }
 
-  // equip() {
-  //   this.weaponDamage = 0;
-  //   this.weapon = equippedWeapon(this.playerType)[0];
-  //   this.weaponDamage = equippedWeapon(this.playerType)[1];
-  // }
-}
+
 // ^^^^^^^^^^^^^^^^^^^ above can be made into a more functional function

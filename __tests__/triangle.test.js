@@ -1,12 +1,13 @@
-import Example from './../src/js/template.js';
+import {Player} from './../src/js/game.js';
 
-describe('Example', () => {
+describe('Player', () => {
 
-  test('should corrently test a fictional example since this i just a template', () => {
-    const example = new Example(parameters);
-    expect(example.ex1).toEqual(/*what i want to pass*/);
+
+
+  test('should create a player', () => {
+    const player = new Player(playerType);
+    expect(this.playerType).toEqual(playerType);
   });
 
-  
 
 });
