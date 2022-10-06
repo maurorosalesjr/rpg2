@@ -37,10 +37,10 @@ function rollDice() {
   let diceRoll = Math.floor((Math.random()*6) + 1);
   console.log(diceRoll);
   if(diceRoll === 1 || diceRoll === 2){
-    return "tripAndFall";
+    return "trip";
   } else if (diceRoll === 3 || diceRoll === 4 || diceRoll === 5){
-    return "battleMonster";
+    return "battle";
   } else {
-    return "findFood";
+    return "food";
   }
 }

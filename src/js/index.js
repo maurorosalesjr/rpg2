@@ -7,7 +7,10 @@ import './../css/styles.css';
 
 // const game = Game;
 const activity = rollDice();
-
+function clearFields() {
+  $('.gameActivity').html("");
+  rollDice().append();
+}
 
 $(document).ready(function() {
 
@@ -19,43 +22,45 @@ $(document).ready(function() {
     const player = createPlayer();
 
     const yourName = $('#playerName').val();
+    console.log( $('#playerName').val());
     let player1 = new Player(player);
     // let currentGame = new Game(player1);
     //$("#monsterHealth").text(currentGame.monsterHealth);
-    $("#playerHealth").text(player1.hp);
-    $("#playerXp").text(player1.xp);
-    $("#playerLevel").text(player1.level);
-    $("#diceNumber").text(rollDice().diceRoll);
-    $("#playerTypeDisplay").text(player1.occupation);
-    $("playerNameDisplay").text(yourName);
-
+    $("#playerHealth").html(`<p>${player1.hp}</p>`);
+    $("#playerXp").html(`<p>${player1.xp}</p>`);
+    $("#playerLevel").html(`<p>${player1.level}</p>`);
+    $("#diceRoll").text(rollDice().diceRoll);
+    $("#occupation").html(`<p>${player1.occupation}</p>`);
+    $("#playerNameDisplay").html(`<p>${yourName}</p>`);
+    console.log(`${player1.occupation}`);
   });
 
   $('button#diceRoll').click(function(){
-    // $(".play").hide();
-    diceRollToPlay(rollDice);
+    clearFields();
+    diceRollToPlay(rollDice());
   });
 
   function diceRollToPlay() {
-    if (activity === "battleMonster") {
+    console.log(activity);
+    if (activity === "battle") {
       // game.monsterHealth = 20;
-      $("#battle").show();
-      $("#food").hide();
-      $("trip").hide();
-    } else if (activity === "findFood") {
-      $("#food").show();
-      $("trip").hide();
-      $("battle").hide();
-    } else if (activity === "tripAndFall") {
-      $("#trip").show();
-      $("#food").hide();
-      $("battle").hide();
+      $(".gameActivity").append(`
+      <h3>Now you get to FIGHT A MONSTER!!</h3>
+      <p>You hear a branch crack behind you, as you turn around you are startled byt the monster ready to pounce</p>`
+      );
+      
+    } else if (activity === "trip") {
+      $(".gameActivity").append(`
+      <h3>You tripped and fell</h3>
+      <p>During the last fall, your trip cost you 5hp. You must have been falling with experience, because you also gained 5xp!</p>
+      `);
+    } else if (activity === "food") {
+      $(".gameActivity").append(`
+      <h3>You found food!</h3>
+      <p>While picking up your die, you see seomthing out of the corner of your eye. You find GENERIC FOOD, giving you 5hp and 10xp!</p>
+      `);
     }
   }
 
-  $('button#load').click(function(){
-    $(".gameActivity").html("");
-    $(".gameActivity").hide();
-    $(".play").show();
-  });
+  
 });
